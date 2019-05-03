@@ -7,19 +7,19 @@ import java.util.Stack;
  */
 
 public class Traverse {
-    public static void preTraverse(TreeNode root){
+    public static void preTraverse(Node root){
         if (root == null) return;
         System.out.print(root.getVal() + ",");
         preTraverse(root.getLeft());
         preTraverse(root.getRight());
     }
 
-    public static void preTraverse1(TreeNode root){
+    public static void preTraverse1(Node root){
         if (root == null) return;
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Stack<Node> stack = new Stack<Node>();
         stack.push(root);
         while (stack.size()!=0){
-            TreeNode p = stack.pop();
+            Node p = stack.pop();
             System.out.print(p.getVal() + ",");
             if (p.getRight()!=null) stack.push(p.getRight());
             if (p.getLeft()!=null) stack.push(p.getLeft());
@@ -27,18 +27,18 @@ public class Traverse {
 
     }
 
-    public static void inTraverse(TreeNode root){
+    public static void inTraverse(Node root){
         if (root == null) return;
         inTraverse(root.getLeft());
         System.out.print(root.getVal() + ",");
         inTraverse(root.getRight());
     }
 
-    public static void inTraverse1(TreeNode root){
+    public static void inTraverse1(Node root){
         if (root == null) return;
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Stack<Node> stack = new Stack<Node>();
 
-        TreeNode p = root;
+        Node p = root;
 
         while (p!=null || stack.size()!=0) {
             while (p!=null){
@@ -46,27 +46,27 @@ public class Traverse {
                 p = p.getLeft();
             }
             if (stack.size()!=0) {
-                TreeNode q = stack.pop();
+                Node q = stack.pop();
                 System.out.print(q.getVal() + ",");
                 p = q.getRight();
             }
         }
     }
 
-    public static void postTraverse(TreeNode root){
+    public static void postTraverse(Node root){
         if (root == null) return;
         postTraverse(root.getLeft());
         postTraverse(root.getRight());
         System.out.print(root.getVal() + ",");
     }
 
-    public static void postTraverse1(TreeNode root){
+    public static void postTraverse1(Node root){
         if (root == null) return;
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Stack<Node> stack = new Stack<Node>();
         Stack<Integer> resStack = new Stack<Integer>();
         stack.push(root);
         while (stack.size()!=0){
-            TreeNode p = stack.pop();
+            Node p = stack.pop();
             resStack.push(p.getVal());
             if (p.getLeft()!=null) stack.push(p.getLeft());
             if (p.getRight()!=null) stack.push(p.getRight());
@@ -77,7 +77,7 @@ public class Traverse {
     }
 
     public static void main(String[] args) {
-        TreeNode root = TreeNode.ConstrucBTree();
+        Node root = Node.ConstrucBTree();
         preTraverse(root);
         System.out.println();
         preTraverse1(root);
