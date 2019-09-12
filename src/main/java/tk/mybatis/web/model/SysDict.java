@@ -9,6 +9,16 @@ public class SysDict implements Serializable {
     private String name;
     private String value;
 
+    public SysDict() {
+    }
+
+    public SysDict(Long id, String code, String name, String value) {
+        this.id = id;
+        this.code = code;
+        this.name = name;
+        this.value = value;
+    }
+
     public Long getId() {
         return id;
     }
