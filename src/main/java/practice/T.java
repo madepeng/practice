@@ -1,26 +1,58 @@
 package practice;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 /**
- * @author 去
+ * @author madepeng
  * @description: TODO
- * @date 2019/7/7 - 11:42
+ * @date 2019/7/5 - 15:50
  */
 public class T {
-    public int test(int a, int b){
-        return a/b;
+    private String name;
+    public T() {
     }
 
-    public static void main(String[] args) {
-        T t = new T();
+    public T(String name) {
+        this.name = name;
+    }
+
+    public static T t(){
+        return new T("madepeng");
+    }
+
+    public static void main(String[] args) throws Exception{
+        T t = t();
+//        System.out.println(t.name);
+//        System.out.println((long)"190816P00072A001181738167".hashCode());
+
+        List<String> list = Arrays.asList("123", "45634", "7892", "abch", "sdfhrthj", "mvkd");
+        list.stream().forEach(e -> {
+            if(e.length() >= 5) {
+                return;
+            }
+//            System.out.println(e);
+        });
+
         try {
-            int res = t.test(11,0);
-            System.out.println(res);
+            ttt();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("some exception");
         }
 
-        System.out.println("end");
+    }
 
+    public static void ttt() throws Exception {
+        for (int i = 0; i < 10; i++) {
+            try{
+                System.out.println(i);
+                throw new Exception("i:"+i);
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                System.out.println("ok");
+            }
+        }
     }
 }

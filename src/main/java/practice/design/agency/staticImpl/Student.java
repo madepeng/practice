@@ -1,10 +1,13 @@
 package practice.design.agency.staticImpl;
 
+import lombok.Data;
+
 /**
  * Description：
  *
  * @author madepeng on 2019-05-07
  */
+@Data
 public class Student implements Person{
     String name;
 

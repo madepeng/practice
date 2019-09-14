@@ -2,6 +2,16 @@ package practice;
 
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.commons.lang3.time.DateUtils;
+
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 
 /**
  * @author 去
@@ -13,44 +23,34 @@ import lombok.Data;
  */
 @Data
 public class Test {
-    @Data
-    static class Person{
-        private String name;
 
-        public Person(String name) {
-            this.name = name;
-        }
-    }
+    public static void main(String[] args) throws ParseException {
+        System.out.println("190829bzifi1741420111572806856389".hashCode());
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println(localDateTime.toString());
+/*        */
+        LocalDate now = LocalDate.now();
+        LocalDate lastDayOfCurrentMouth = now.with(TemporalAdjusters.lastDayOfMonth());
+        System.out.println(lastDayOfCurrentMouth);
+        LocalDateTime ldt = LocalDateTime.now();
+       LocalDateTime lll = ldt.with(TemporalAdjusters.lastDayOfMonth());
+        System.out.println(lll);
 
-    public static void p(Person p){
-        if (p == null) p = new Person("init");
-        else p.name = "manjianghong";
-    }
-    public static void t(String integer){
+        lll =  lll.withHour(23);
+        System.out.println(lll);
 
-    }
 
-    public static void sawp(int[] a, int i, int j){
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
+        LocalDate date = LocalDate.parse("2019-09-09");
 
-    public static void main(String[] args) {
-        String integer = "8";
-        System.out.println(integer);
-        t(integer);
-        System.out.println(integer);
-        int[] a = {1,2};
-        sawp(a,0,1);
-        System.out.println(JSON.toJSONString(a));
-        Person p = new Person("madepeng");
-        System.out.println(p);
-        p(p);
-        System.out.println(p);
+        LocalDateTime ma = LocalDateTime.of(date.with(TemporalAdjusters.lastDayOfMonth()), LocalTime.MAX).withNano(0);
+        System.out.println("ma:" + ma);
 
-        Person p1 = null;
-        p(p1);
-        System.out.println(p1);
+
+        LocalDateTime tradeDate = LocalDateTime.of(LocalDate.parse("2019-09-09").with(TemporalAdjusters.lastDayOfMonth()),
+                LocalTime.MAX).withNano(0);
+        System.out.println("de:"+tradeDate);
+
+        String s = "8d";
+        System.out.println(NumberUtils.isDigits(s));
     }
 }

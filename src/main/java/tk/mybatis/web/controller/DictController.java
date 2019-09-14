@@ -31,7 +31,7 @@ public class DictController {
      * @param limit
      * @return
      */
-    @RequestMapping
+    @RequestMapping("index")
     public ModelAndView dicts(SysDict sysDict, Integer offset, Integer limit) {
         ModelAndView mv = new ModelAndView("dicts");
         List<SysDict> dicts = dictService.findBySysDict(sysDict, offset, limit);
