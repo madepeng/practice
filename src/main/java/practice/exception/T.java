@@ -27,7 +27,7 @@ public class T {
         System.out.println(Objects.deepEquals(st1,st2));
         Double d = null;
         System.out.println(String.valueOf(d));
-
+        System.out.println();
 
     }
 }
