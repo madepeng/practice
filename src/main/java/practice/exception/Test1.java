@@ -28,5 +28,6 @@ public class Test1 {
         System.out.println(2/3);
         System.out.println();
         System.out.println();
+        System.out.println();
     }
 }
