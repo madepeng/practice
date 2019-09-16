@@ -31,5 +31,6 @@ public class Test1 {
         System.out.println();
         String s = "";
         System.out.println(NumberUtils.isDigits(s));
+        System.out.println();
     }
 }
