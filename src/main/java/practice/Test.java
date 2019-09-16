@@ -52,5 +52,7 @@ public class Test {
 
         String s = "8d";
         System.out.println(NumberUtils.isDigits(s));
+
+
     }
 }

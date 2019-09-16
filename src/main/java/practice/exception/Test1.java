@@ -1,5 +1,6 @@
 package practice.exception;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.cglib.core.CollectionUtils;
 
 /**
@@ -23,12 +24,12 @@ public class Test1 {
     }
 
     public static void t(){
-        System.out.println(2/2);
-        System.out.println(1/0);
-        System.out.println(2/3);
+
         System.out.println();
         System.out.println();
         System.out.println();
         System.out.println();
+        String s = "";
+        System.out.println(NumberUtils.isDigits(s));
     }
 }
