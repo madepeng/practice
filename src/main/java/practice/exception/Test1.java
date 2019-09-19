@@ -3,6 +3,10 @@ package practice.exception;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.cglib.core.CollectionUtils;
 
+import java.util.regex.Pattern;
+
+import static java.util.regex.Pattern.compile;
+
 /**
  * @author madepeng
  * @description: TODO
@@ -30,8 +34,23 @@ public class Test1 {
         System.out.println();
         System.out.println();
         String s = "";
-        System.out.println(NumberUtils.isDigits(s));
+        System.out.println(NumberUtils.isParsable(s));
+        System.out.println(NumberUtils.isParsable("1"));
+        System.out.println(NumberUtils.isParsable("1.1"));
+        System.out.println(NumberUtils.isParsable("0.1"));
+        System.out.println(NumberUtils.isParsable("000001"));
+        System.out.println(NumberUtils.isParsable("00000100000"));
+        System.out.println(isNumeric("9"));
+        System.out.println(isNumeric("-9"));
+        System.out.println(Integer.valueOf("000001"));
         System.out.println();
         System.out.println();
+        System.out.println(NumberUtils.isParsable("1111111111111111111111111111"));
+    }
+
+    // 判断是否为正整数
+    private static boolean isNumeric(String s){
+        Pattern pattern = compile("[0-9]*");
+        return pattern.matcher(s).matches();
     }
 }
