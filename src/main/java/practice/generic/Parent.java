@@ -2,23 +2,23 @@ package practice.generic;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
- * @ClassName Son
+ * @ClassName Parent
  * @Description TODO
  * @Author madepeng
  * @Date 2019/9/23 11:04
  * @Version 1.0
  */
 @Data
-public class Son extends Parent {
-    public Son(String name) {
-        super(name);
-    }
+@AllArgsConstructor
+public class Parent {
+    private String name;
 
     @Override
     public String toString() {
-        return super.getName();
+        return "Parent{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
