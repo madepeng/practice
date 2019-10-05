@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  */
 public class T1 {
     public static void main(String[] args) throws IOException {
-        Path path = Paths.get("D:","迅雷下载");
+        Path path = Paths.get("D:","test");
         /*System.out.println(path.endsWith("迅雷下载"));
         System.out.println(path.getFileName());
         System.out.println(path.getFileSystem());
@@ -26,7 +26,7 @@ public class T1 {
         System.out.println(path.normalize());
         System.out.println(path.subpath(0,2));
         System.out.println(path.toUri());*/
-        System.out.println(Files.size(path));
+        /*System.out.println(Files.size(path));
         System.out.println(Files.exists(path));
         System.out.println(Files.getFileStore(path));
         System.out.println(Files.getOwner(path));
@@ -34,11 +34,13 @@ public class T1 {
         System.out.println(Files.isDirectory(path));
         System.out.println(Files.isExecutable(path));
         System.out.println(Files.isHidden(path));
-        System.out.println(Files.isReadable(path));
-        System.out.println(Files.isRegularFile(path));
+        System.out.println(Files.isReadable(path));*/
+  /*      System.out.println(Files.isRegularFile(path));
         System.out.println(Files.isSymbolicLink(path));
-        System.out.println(Files.isWritable(path));
-        List<Path> paths = Files.list(path).collect(Collectors.toList());
-        System.out.println(paths);
+        System.out.println(Files.isWritable(path));*/
+        Files.createDirectories(path);
+        Path fp = path.resolve("test.txt");
+        Files.createFile(fp);
+        Files.createFile(path);
     }
 }
