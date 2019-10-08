@@ -67,5 +67,6 @@
     <orderEntry type="library" name="Maven: org.slf4j:log4j-over-slf4j:1.5.11" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.5.11" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:unknown" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
   </component>
 </module>

@@ -52,6 +52,7 @@
           <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.5.11" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.5.11" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:unknown" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">
