@@ -1,6 +1,5 @@
 package practice.generic.pair;
 
-import com.sun.org.apache.xerces.internal.xs.datatypes.ObjectList;
 import practice.T;
 
 import java.util.ArrayList;
