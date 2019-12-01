@@ -53,6 +53,6 @@ public class Test {
         String s = "8d";
         System.out.println(NumberUtils.isDigits(s));
 
-
+        System.out.println(LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("yyyyMMdd")));
     }
 }

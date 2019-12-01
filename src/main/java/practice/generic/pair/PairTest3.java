@@ -1,5 +1,10 @@
 package practice.generic.pair;
 
+import practice.T;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @version 1.01 2012-01-26
  * @author Cay Horstmann
@@ -26,12 +31,28 @@ public class PairTest3
       Manager[] managers = { ceo, cfo };
 
       Pair<Employee> result = new Pair<>();
+      Pair<Manager> result1 = new Pair<>();
       minmaxBonus(managers, result);
-      System.out.println("first: " + result.getFirst().getName() 
-         + ", second: " + result.getSecond().getName());
+      System.out.println("first: " + result.getFirst().getName()
+              + ", second: " + result.getSecond().getName());
+      minmaxBonus(managers, result1);
+      System.out.println("first: " + result1.getFirst().getName()
+         + ", second: " + result1.getSecond().getName());
+
       maxminBonus(managers, result);
-      System.out.println("first: " + result.getFirst().getName() 
+      System.out.println("first: " + result.getFirst().getName()
          + ", second: " + result.getSecond().getName());
+
+
+      List<?> l1 = new ArrayList<String>();
+      List l7 = new ArrayList<String>();
+      List<?> l2 = new ArrayList<Integer>();
+      List<?> l3 = new ArrayList<Employee>();
+
+
+      Employee[] employees = new Manager[10];
+      employees[0] = lowe;
+      System.out.println(employees[0]);
    }
 
    // 这是使用的泛型方法实现的
@@ -63,6 +84,7 @@ public class PairTest3
       }
       result.setFirst(min);
       result.setSecond(max);
+      Object e = result.getFirst();
    }
 
    public static void maxminBonus(Manager[] a, Pair<? super Manager> result)
@@ -74,8 +96,8 @@ public class PairTest3
 
 class PairAlg
 {
-   public static boolean hasNulls(Pair<?> p)
-   {
+   public static boolean hasNulls(Pair<?> p) {
+      Object e = p.getFirst();
       return p.getFirst() == null || p.getSecond() == null;
    }
 
