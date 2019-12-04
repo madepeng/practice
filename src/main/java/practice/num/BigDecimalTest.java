@@ -16,5 +16,9 @@ public class BigDecimalTest {
         System.out.println(new BigDecimal("0.99"));
         System.out.println(BigDecimal.valueOf(0.99));
         System.out.println(BigDecimal.valueOf(0.99f));
+        System.out.println(BigDecimal.valueOf(100));
+        System.out.println(BigDecimal.valueOf(100f));
+        System.out.println(BigDecimal.valueOf(100.0));
+        System.out.println(BigDecimal.valueOf(100d));
     }
 }

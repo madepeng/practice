@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @ClassName Persion
@@ -17,10 +18,11 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Persion implements Serializable {
-    private static final long serialVersionUID = 4359709211352400086L;
+    private static final long serialVersionUID = 1L;
     public Long id;
     public String name;
     public Integer age;
+    public LocalDateTime date;
     public final String userName = "ddd";
 
 }
