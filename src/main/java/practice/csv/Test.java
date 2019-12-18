@@ -8,7 +8,6 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,33 +21,27 @@ import java.util.List;
 public class Test {
     //CSV文件分隔符
     private final static String NEW_LINE_SEPARATOR="\n";
+    private final static char Delimiter= '|';
 
     public static void main(String[] args) throws IOException {
 
-        /*Appendable out = new PrintWriter("D:/test.csv");
-        CSVPrinter printer = CSVFormat.DEFAULT.withHeader("userId", "userName")
-                .print(out);
-        for (int i = 0; i < 10; i++)
-        {
-            printer.printRecord("userId" + i, "userName" + i);
-        }
-        printer.flush();
-        printer.close();*/
-
-        String[] heads = {"name", "age", "birthday"};
+        String[] heads = {"name", "age", "birthday","addres"};
         List<String[]> data = new ArrayList<>();
-        data.add(new String[]{"tom", "12", "2012-09-09"});
-        data.add(new String[]{"john", "22", "2042-09-09"});
-        data.add(new String[]{"apple", "32", "2032-09-09"});
+        data.add(new String[]{"tom", "12", "2012-09-09","beijing"});
+        data.add(new String[]{"john", "22", "2042-09-09","shanghai"});
+        data.add(new String[]{"apple", "32", "2032-09-09","xuchang"});
         String path = "D://test.txt";
-//        writeCsv(heads,data,path);
+        writeCsv(heads,data,path);
 
         List<CSVRecord> list = readCSV(path, heads);
-        CSVRecord csvRecord = list.get(0);
-        System.out.println(csvRecord);
-        System.out.println(csvRecord.size());
-        System.out.println(csvRecord.get(0));
-        System.out.println(csvRecord.get("name"));
+        for (CSVRecord csvRecord : list) {
+//            System.out.println(csvRecord);
+            System.out.println(csvRecord.getComment());
+            System.out.println(csvRecord.toMap());
+//            System.out.println(csvRecord.size());
+//            System.out.println(csvRecord.get(0));
+//            System.out.println(csvRecord.get("name"));
+        }
     }
 
     /**写入csv文件
@@ -59,7 +52,7 @@ public class Test {
     public static void writeCsv(String[] headers, List<String[]> data, String filePath) throws IOException {
 
         //初始化csvformat
-        CSVFormat formator = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR);
+        CSVFormat formator = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR).withDelimiter(Delimiter);
 
         //创建FileWriter对象
         FileWriter fileWriter=new FileWriter(filePath);
@@ -69,7 +62,6 @@ public class Test {
 
         //写入列头数据
         printer.printRecord(headers);
-
         if(null!=data){
             //循环写入数据
             for(String[] lineData:data){
@@ -93,7 +85,6 @@ public class Test {
     public static List<CSVRecord> readCSV(String filePath, String[] headers) throws IOException{
 
         //创建CSVFormat
-//        CSVFormat formator = CSVFormat.DEFAULT.withHeader(headers);
         CSVFormat formator = CSVFormat.DEFAULT.withDelimiter('|').withRecordSeparator('\n').withHeader(headers);
 
         FileReader fileReader=new FileReader(filePath);
