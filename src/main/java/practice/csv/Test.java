@@ -4,12 +4,13 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * @ClassName Test
@@ -24,14 +25,15 @@ public class Test {
     private final static char Delimiter= '|';
 
     public static void main(String[] args) throws IOException {
-
+        String path = "D://test.txt";
         String[] heads = {"name", "age", "birthday","addres"};
+       /*
         List<String[]> data = new ArrayList<>();
         data.add(new String[]{"tom", "12", "2012-09-09","beijing"});
         data.add(new String[]{"john", "22", "2042-09-09","shanghai"});
         data.add(new String[]{"apple", "32", "2032-09-09","xuchang"});
-        String path = "D://test.txt";
-        writeCsv(heads,data,path);
+        writeCsv(heads,data,path);*/
+
 
         List<CSVRecord> list = readCSV(path, heads);
         for (CSVRecord csvRecord : list) {
@@ -93,10 +95,28 @@ public class Test {
         CSVParser parser=new CSVParser(fileReader,formator);
 
         List<CSVRecord> records=parser.getRecords();
+        removeEmptyRecord(records);
+        System.out.println(records);
 
         parser.close();
         fileReader.close();
 
         return records;
+    }
+
+    private static List<CSVRecord> removeEmptyRecord(List<CSVRecord> records){
+        ListIterator<CSVRecord> iterator = records.listIterator();
+        while (iterator.hasNext()) {
+            CSVRecord record = iterator.next();
+            if (isEmptyRecord(record)) {
+                iterator.remove();
+            }
+        }
+
+        return records;
+    }
+
+    private static boolean isEmptyRecord(CSVRecord record){
+        return record.size() == 1 && StringUtils.isBlank(record.get(0));
     }
 }
