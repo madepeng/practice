@@ -1,6 +1,9 @@
 package practice.file;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,5 +32,8 @@ public class T2 {
 
         String s = "P00087A001";
         System.out.println(s.substring(0,7));
+
+        Path path = Paths.get("D:\\test.txt");
+        System.out.println(Files.isRegularFile(path));
     }
 }
