@@ -1,5 +1,8 @@
 package practice.file;
 
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -35,5 +38,13 @@ public class T2 {
 
         Path path = Paths.get("D:\\test.txt");
         System.out.println(Files.isRegularFile(path));
+
+        FileUtils.copyFile(new File("D:\\test.txt"), new File("D:\\etcbackup\\20191226\\test.txt"), false);
+
+        String ss = "P00087A001_ST000008_20191226_adpay.txt";
+        String replyOkFile = ss.replace("adpay", "adpay_return").concat(".ok");
+        System.out.println(replyOkFile);
+
+
     }
 }
