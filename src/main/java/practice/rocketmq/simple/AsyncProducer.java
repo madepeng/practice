@@ -31,16 +31,18 @@ public class AsyncProducer {
     public static void main(
         String[] args) throws MQClientException, InterruptedException, UnsupportedEncodingException {
 
-        DefaultMQProducer producer = new DefaultMQProducer("Jodie_Daily_test");
+        DefaultMQProducer producer = new DefaultMQProducer("Demo2");
+        producer.setNamesrvAddr("172.19.184.120:9876");
         producer.start();
-        producer.setRetryTimesWhenSendAsyncFailed(0);
+        producer.setRetryTimesWhenSendAsyncFailed(3);
+
 
         int messageCount = 100;
         final CountDownLatch countDownLatch = new CountDownLatch(messageCount);
         for (int i = 0; i < messageCount; i++) {
             try {
                 final int index = i;
-                Message msg = new Message("Jodie_topic_1023",
+                Message msg = new Message("Demo2",
                     "TagA",
                     "OrderID188",
                     "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
@@ -62,7 +64,7 @@ public class AsyncProducer {
                 e.printStackTrace();
             }
         }
-        countDownLatch.await(5, TimeUnit.SECONDS);
+        countDownLatch.await(100000, TimeUnit.SECONDS);
         producer.shutdown();
     }
 }
