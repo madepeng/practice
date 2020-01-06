@@ -3,6 +3,7 @@
        xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:apollo="http://www.ctrip.com/schema/apollo"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -11,9 +12,16 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
 
-    <context:component-scan base-package="tk.mybatis.*.service.impl"/>
+    <context:component-scan base-package="tk.mybatis, practice.apollo"/>
+
+    <apollo:config/>
+    <bean class="practice.apollo.TestXmlBean">
+        <property name="timeout" value="${timeout:100}"/>
+        <property name="batch" value="${batch:200}"/>
+    </bean>
 
     <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
