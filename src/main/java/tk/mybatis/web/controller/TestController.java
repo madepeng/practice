@@ -1,9 +1,12 @@
 package tk.mybatis.web.controller;
 
+import com.ctrip.framework.apollo.Config;
+import com.ctrip.framework.apollo.spring.annotation.ApolloConfig;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import practice.apollo.TestXmlBean;
+import practice.apollo.TestJavaBean;
 
 import javax.annotation.Resource;
 
@@ -18,14 +21,32 @@ import javax.annotation.Resource;
 public class TestController {
 
     @Resource
-    private TestXmlBean bean;
+    private TestJavaBean bean;
+
+    @Value("${path}")
+    private String path;
+
+    @ApolloConfig
+    private Config config;
+
+    @ApolloConfig("application")
+    private Config anotherConfig;
+
+
+  /*  @ApolloConfig("MyNameSpace ")
+    private Config mySpace;*/
+
+    @Value("${key1}")
+    private String key1;
 
     @RequestMapping(value = "/test/apollo")
     public ModelAndView test(){
         ModelAndView mv = new ModelAndView();
-        int timeout = bean.getTimeout();
-        System.out.println(timeout);
+        final Config config = bean.getConfig();
+        System.out.println(config);
 
+//        System.out.println(config == anotherConfig);
+//        System.out.println(mySpace);
         mv.setViewName("index");
         mv.addObject("result", bean);
         return mv;

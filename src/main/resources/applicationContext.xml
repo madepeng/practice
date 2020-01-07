@@ -18,6 +18,7 @@
     <context:component-scan base-package="tk.mybatis, practice.apollo"/>
 
     <apollo:config/>
+
     <bean class="practice.apollo.TestXmlBean">
         <property name="timeout" value="${timeout:100}"/>
         <property name="batch" value="${batch:200}"/>
