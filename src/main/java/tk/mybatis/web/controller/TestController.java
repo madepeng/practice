@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import practice.apollo.PersonBean;
 import practice.apollo.TestJavaBean;
 
 import javax.annotation.Resource;
@@ -38,6 +39,9 @@ public class TestController {
 
     @Value("${key1}")
     private String key1;
+
+    @Resource
+    private PersonBean personBean;
 
     @RequestMapping(value = "/test/apollo")
     public ModelAndView test(){

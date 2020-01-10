@@ -17,6 +17,9 @@ public class TestJavaBean {
     @ApolloConfig("application")
     private Config config;
 
+    @ApolloConfig("MyNameSpace")
+    private Config myNameSpace;
+
     @Value("${timeout}")
     private int timeout;
 

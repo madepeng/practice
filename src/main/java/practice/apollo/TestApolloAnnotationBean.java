@@ -1,7 +1,13 @@
 package practice.apollo;
 
 import com.ctrip.framework.apollo.Config;
+import com.ctrip.framework.apollo.model.ConfigChangeEvent;
 import com.ctrip.framework.apollo.spring.annotation.ApolloConfig;
+import com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;
+import com.ctrip.framework.apollo.spring.annotation.ApolloJsonValue;
+import org.springframework.beans.factory.annotation.Value;
+
+import java.util.List;
 
 /**
  * @ClassName TestApolloAnnotationBean
@@ -18,11 +24,11 @@ public class TestApolloAnnotationBean {
     @ApolloConfig("MyNameSpace")
     private Config myNameSpace; //inject config for namespace FX.apollo
 
-  /*  *//**
+    /**
      * ApolloJsonValue annotated on fields example, the default value is specified as empty list - []
      * <br />
      * jsonBeanProperty=[{"someString":"hello","someInt":100},{"someString":"world!","someInt":200}]
-     *//*
+     */
     @ApolloJsonValue("${jsonBeanProperty:[]}")
     private List<JsonBean> anotherJsonBeans;
 
@@ -59,5 +65,5 @@ public class TestApolloAnnotationBean {
     private static class JsonBean{
         private String someString;
         private int someInt;
-    }*/
+    }
 }
