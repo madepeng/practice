@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 
 /**
  * @ClassName TestController
- * @Description: TODO
+ * @Description: 测试controller
  * @Author madepeng
  * @Date 2020/1/6
  * @Version V1.0
@@ -33,8 +33,8 @@ public class TestController {
     private Config anotherConfig;
 
 
-  /*  @ApolloConfig("MyNameSpace ")
-    private Config mySpace;*/
+    @ApolloConfig("MyNameSpace ")
+    private Config mySpace;
 
     @Value("${key1}")
     private String key1;

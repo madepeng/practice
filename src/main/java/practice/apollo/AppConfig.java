@@ -18,5 +18,10 @@ public class AppConfig {
     public TestJavaBean javaConfigBean() {
         return new TestJavaBean();
     }
+
+    @Bean
+    public TestApolloAnnotationBean testApolloAnnotationBean() {
+        return new TestApolloAnnotationBean();
+    }
 }
 
