@@ -13,7 +13,17 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="tk.mybatis.*.service.impl"/>
+<!--    <context:component-scan base-package="tk.mybatis, practice.apollo"/>-->
+    <context:component-scan base-package="tk.mybatis">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--<apollo:config/>-->
+
+   <!-- <bean class="practice.apollo.TestXmlBean">
+        <property name="timeout" value="${timeout:100}"/>
+        <property name="batch" value="${batch:200}"/>
+    </bean>-->
 
     <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
@@ -57,4 +67,8 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+    <import resource="test.xml"/>
+    <bean id="config" class="practice.apollo.AppConfig"/>
+    <bean id="general" class="practice.apollo.GeneralConfig"/>
 </beans>

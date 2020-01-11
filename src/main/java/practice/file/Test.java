@@ -1,15 +1,18 @@
 package practice.file;
 
+import com.google.common.collect.Lists;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -65,9 +68,23 @@ public class Test {
         File file3 = new File("D://test//mm.txt");
         List<String> ls1 = FileUtils.readLines(file3);
         System.out.println(ls1);*/
-        System.out.println(file2.getPath());
+     /*   System.out.println(file2.getPath());
         System.out.println(file2.getAbsolutePath());
         System.out.println(file2.getCanonicalPath());
-
+        System.out.println(file2.getAbsolutePath());
+        System.out.println(file2.getCanonicalPath());
+        System.out.println();*/
+        Path path3 = Paths.get("D:\\test\\mm.txt");
+        System.out.println(path3.getFileName());
+        System.out.println(path3.toString());
+        System.out.println(path3.getNameCount());
+        System.out.println(path3.toFile());
+        System.out.println(LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("yyyyMMdd")));
+        File file3 = new File("D://test//mm.txt");
+        List<String> ls1 = FileUtils.readLines(file3);
+        System.out.println(ls1);
+        FileUtils.writeLines(new File("D:\\test\\mm.txt.flag"), StandardCharsets.UTF_8.name(),
+                Lists.newArrayList("20191218", "20191217", "20191216"), true);
+        System.out.println(FileUtils.readLines(Paths.get("D:\\test\\mm.txt.flag").toFile()));
     }
 }

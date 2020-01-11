@@ -1,4 +1,3 @@
-<%@ page import="java.util.Date" %>
 <%@ page language="java" contentType="text/html; charset=UTF8" pageEncoding="UTF8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -14,6 +13,8 @@
 </p>
 <p>
     服务器时间：<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss"/>
+    <br/>
+    测试结果：${result}
 </p>
 </body>
 </html>

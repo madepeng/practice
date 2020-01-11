@@ -13,6 +13,9 @@ import redis.clients.jedis.JedisPool;
  **/
 public class JedisPoolTest {
     public static void main(String[] args) {
+
+
+
         GenericObjectPoolConfig config = new GenericObjectPoolConfig();
         config.setMaxTotal(1);
         JedisPool pool = new JedisPool(config, "172.19.184.152");
