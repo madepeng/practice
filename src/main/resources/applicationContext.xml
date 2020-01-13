@@ -69,6 +69,6 @@
     </bean>
 
     <import resource="test.xml"/>
-    <bean id="config" class="practice.apollo.AppConfig"/>
+    <bean id="config" class="practice.apollo.AppConfig" />
     <bean id="general" class="practice.apollo.GeneralConfig"/>
 </beans>

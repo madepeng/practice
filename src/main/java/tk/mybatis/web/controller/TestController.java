@@ -34,7 +34,7 @@ public class TestController {
     private Config anotherConfig;
 
 
-    @ApolloConfig("MyNameSpace ")
+    @ApolloConfig("MyNameSpace")
     private Config mySpace;
 
     @Value("${key1}")
@@ -52,7 +52,8 @@ public class TestController {
 //        System.out.println(config == anotherConfig);
 //        System.out.println(mySpace);
         mv.setViewName("index");
-        mv.addObject("result", bean);
+        mv.addObject("res1", bean.getConfig() == config);
+        mv.addObject("res2", bean.getMyNameSpace() == mySpace);
         return mv;
     }
 }

@@ -14,7 +14,7 @@
 <p>
     服务器时间：<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss"/>
     <br/>
-    测试结果：${result}
+    测试结果：${res1},${res2}
 </p>
 </body>
 </html>
