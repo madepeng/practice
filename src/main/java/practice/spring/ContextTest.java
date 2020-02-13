@@ -13,10 +13,14 @@ public class ContextTest {
     public static void main(String[] args) {
         String conf = "applicationContext.xml";
         //创建容器对象
-        ApplicationContext ac = new ClassPathXmlApplicationContext(conf);
+        ApplicationContext context = new ClassPathXmlApplicationContext(conf);
         //得到Example对象
-        PersonBean e1 = ac.getBean("person",PersonBean.class);
-        PersonBean e2 = ac.getBean("person",PersonBean.class);
+        PersonBean e1 = context.getBean("person",PersonBean.class);
+        PersonBean e2 = context.getBean("person",PersonBean.class);
         System.out.println(e1 == e2);
+        System.out.println(context.getApplicationName());
+        System.out.println(context.getDisplayName());
+        System.out.println(context.getBeansOfType(PersonBean.class));
+        System.out.println(context.getEnvironment());
     }
 }
