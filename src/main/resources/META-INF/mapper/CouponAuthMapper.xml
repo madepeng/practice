@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.generator.mapper.CouponAuthMapper">
+  <resultMap id="BaseResultMap" type="mybatis.generator.model.CouponAuth">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="platform_id" jdbcType="VARCHAR" property="platformId" />
+    <result column="app_id" jdbcType="VARCHAR" property="appId" />
+    <result column="list_type" jdbcType="VARCHAR" property="listType" />
+    <result column="list_status" jdbcType="VARCHAR" property="listStatus" />
+    <result column="coupon_batch_number" jdbcType="VARCHAR" property="couponBatchNumber" />
+    <result column="coupon_type" jdbcType="VARCHAR" property="couponType" />
+    <result column="auth_field" jdbcType="VARCHAR" property="authField" />
+    <result column="auth_field_no" jdbcType="VARCHAR" property="authFieldNo" />
+    <result column="auth_field_name" jdbcType="VARCHAR" property="authFieldName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, platform_id, app_id, list_type, list_status, coupon_batch_number, coupon_type, 
+    auth_field, auth_field_no, auth_field_name, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from coupon_auth
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="mybatis.generator.model.CouponAuth">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into coupon_auth (platform_id, app_id, list_type, 
+      list_status, coupon_batch_number, coupon_type, 
+      auth_field, auth_field_no, auth_field_name, 
+      create_time, update_time)
+    values (#{platformId,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, #{listType,jdbcType=VARCHAR}, 
+      #{listStatus,jdbcType=VARCHAR}, #{couponBatchNumber,jdbcType=VARCHAR}, #{couponType,jdbcType=VARCHAR}, 
+      #{authField,jdbcType=VARCHAR}, #{authFieldNo,jdbcType=VARCHAR}, #{authFieldName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis.generator.model.CouponAuth">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into coupon_auth
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="platformId != null">
+        platform_id,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="listType != null">
+        list_type,
+      </if>
+      <if test="listStatus != null">
+        list_status,
+      </if>
+      <if test="couponBatchNumber != null">
+        coupon_batch_number,
+      </if>
+      <if test="couponType != null">
+        coupon_type,
+      </if>
+      <if test="authField != null">
+        auth_field,
+      </if>
+      <if test="authFieldNo != null">
+        auth_field_no,
+      </if>
+      <if test="authFieldName != null">
+        auth_field_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="platformId != null">
+        #{platformId,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
+      </if>
+      <if test="listType != null">
+        #{listType,jdbcType=VARCHAR},
+      </if>
+      <if test="listStatus != null">
+        #{listStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="couponBatchNumber != null">
+        #{couponBatchNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="couponType != null">
+        #{couponType,jdbcType=VARCHAR},
+      </if>
+      <if test="authField != null">
+        #{authField,jdbcType=VARCHAR},
+      </if>
+      <if test="authFieldNo != null">
+        #{authFieldNo,jdbcType=VARCHAR},
+      </if>
+      <if test="authFieldName != null">
+        #{authFieldName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
