@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.ToIntFunction;
+import java.util.stream.Stream;
 
 /**
  * @ClassName Reduce
@@ -15,13 +16,17 @@ import java.util.function.ToIntFunction;
  **/
 public class Reduce {
     public static void main(String[] args) {
+
+        consumeTest();
+        functiontest();
+
+
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
         list.add(3);
-
-        consumeTest();
-        functiontest();
+        list.add(4);
+        Stream<Integer> s1 = list.stream().parallel().unordered().filter(integer -> integer > 2).map(integer -> integer + 9);
     }
 
     public static void consumeTest() {
@@ -55,4 +60,13 @@ public class Reduce {
         ToIntFunction<String> f5 = value -> Integer.valueOf(value);
         System.out.println(f5.applyAsInt("9"));
     }
+
+    public static <T extends Comparable<T>> T min(T[] a)  {
+        if (a == null || a.length == 0) return null;
+        T smallest = a[0];
+        for (int i = 1 ; i < a.length; i++) {
+            if (smallest.compareTo(a[i]) > 0) smallest = a[i];
+        }
+        return smallest; }
+
 }

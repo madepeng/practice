@@ -1,5 +1,8 @@
 package practice.generic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @ClassName GenericityTest
  * @Description TODO
@@ -38,6 +41,7 @@ public class GenericityTest {
         System.out.println(son8);
 
         System.out.println(new Son8<Number, Long>(8, 8L));// 构造函数 两个参数具有父子关系
+        List<List> ls = new ArrayList<>();
     }
 }
 
