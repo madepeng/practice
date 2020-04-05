@@ -1,4 +1,4 @@
-package practice.generic;
+package practice.java.generic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  * @Date 2019/9/23 14:04
  * @Version 1.0
  */
-public class GenericityTest {
+public class GeneriInheritTest {
     public static void main(String[] args) {
         // 这里只测试Son6和Son8 其他很简单，自己测试吧！
         Father<Double> father1 = new Son1<>(4.44);

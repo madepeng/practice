@@ -1,6 +1,4 @@
-package practice.generic.pair;
-
-import practice.T;
+package practice.java.generic.pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +7,7 @@ import java.util.List;
  * @version 1.01 2012-01-26
  * @author Cay Horstmann
  */
-public class PairTest3
+public class PairTest
 {
    public static void main(String[] args)
    {
@@ -32,6 +30,7 @@ public class PairTest3
 
       Pair<Employee> result = new Pair<>();
       Pair<Manager> result1 = new Pair<>();
+
       minmaxBonus(managers, result);
       System.out.println("first: " + result.getFirst().getName()
               + ", second: " + result.getSecond().getName());
@@ -48,7 +47,6 @@ public class PairTest3
       List l7 = new ArrayList<String>();
       List<?> l2 = new ArrayList<Integer>();
       List<?> l3 = new ArrayList<Employee>();
-
 
       Employee[] employees = new Manager[10];
       employees[0] = lowe;
@@ -74,13 +72,19 @@ public class PairTest3
    // 限定符类型可以改为泛型方法吗？
    public static void minmaxBonus(Manager[] a, Pair<? super Manager> result)
    {
-      if (a.length == 0) return;
+      if (a.length == 0) {
+         return;
+      }
       Manager min = a[0];
       Manager max = a[0];
       for (int i = 1; i < a.length; i++)
       {
-         if (min.getBonus() > a[i].getBonus()) min = a[i];
-         if (max.getBonus() < a[i].getBonus()) max = a[i];
+         if (min.getBonus() > a[i].getBonus()) {
+            min = a[i];
+         }
+         if (max.getBonus() < a[i].getBonus()) {
+            max = a[i];
+         }
       }
       result.setFirst(min);
       result.setSecond(max);

@@ -20,7 +20,6 @@ public class Reduce {
         consumeTest();
         functiontest();
 
-
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);

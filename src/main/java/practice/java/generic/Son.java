@@ -1,8 +1,6 @@
-package practice.generic;
+package practice.java.generic;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @ClassName Son

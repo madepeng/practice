@@ -1,6 +1,4 @@
-package practice.generic;
-
-import org.omg.PortableServer.LIFESPAN_POLICY_ID;
+package practice.java.generic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +33,8 @@ public class TongpeiTest {
 
         test1(pL);
         test1(sL);
-        List<? super Son> list1 = sL;
+        List<? super Son> list1 = pL;
+        list1.set(0, new Son());
         Parent son = pL.get(0);
     }
 

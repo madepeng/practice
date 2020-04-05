@@ -1,7 +1,8 @@
-package practice.generic;
+package practice.java.generic;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @ClassName Parent
@@ -12,6 +13,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Parent {
     private String name;
 
