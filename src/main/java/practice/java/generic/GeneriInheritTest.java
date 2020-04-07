@@ -157,7 +157,7 @@ class Son6<Integer> extends Father<Integer> {
 
 }
 // 下面是错误的情况 父类的类型参数不明确，这会让编译器迷糊 ，让它迷糊了，就是错了！
- class Son7 extends Father<T>{
+ /*class Son7 extends Father<T>{
 
     public Son7(T data) {
         super(data);
@@ -169,7 +169,7 @@ class Son6<Integer> extends Father<Integer> {
                 "data=" + data +
                 '}';
     }
-}
+}*/
 
 // 父类和子类的泛型参数具有关系
 class Son8<T, E extends T> extends Father<T> {

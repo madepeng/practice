@@ -1,7 +1,8 @@
-package practice.stream;
+package practice.java.stream;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @ClassName Person
@@ -10,8 +11,10 @@ import lombok.Data;
  * @Date 2020/2/3
  * @Version V1.0
  **/
-@Data
+
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Person {
     private String name;
     private String address;

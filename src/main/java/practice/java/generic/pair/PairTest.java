@@ -48,6 +48,15 @@ public class PairTest
       List<?> l2 = new ArrayList<Integer>();
       List<?> l3 = new ArrayList<Employee>();
 
+      List<? super Manager> l4 = new ArrayList<>();
+      Object object = l4.get(0);
+//      l4.set(0, new Manager());
+
+      List<? extends Employee> l5 = new ArrayList<>();
+      Employee employee = l5.get(0);
+//      l5.set(0, new Employee());
+
+
       Employee[] employees = new Manager[10];
       employees[0] = lowe;
       System.out.println(employees[0]);

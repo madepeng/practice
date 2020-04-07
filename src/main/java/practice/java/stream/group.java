@@ -1,4 +1,4 @@
-package practice.stream;
+package practice.java.stream;
 
 import com.google.common.collect.Lists;
 
@@ -28,5 +28,11 @@ public class group {
 
         final Map<String, Long> collect1 = list.stream().collect(Collectors.groupingBy(Person::getName, Collectors.counting()));
         System.out.println(collect1);
+
+        Long collect2 = list.stream().collect(Collectors.counting());
+        System.out.println(collect2);
+
+        Map<String, List<Person>> collect3 = list.stream().collect(Collectors.groupingBy(Person::getAddress, Collectors.toList()));
+        System.out.println(collect3);
     }
 }

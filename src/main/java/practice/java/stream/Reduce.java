@@ -1,10 +1,13 @@
-package practice.stream;
+package practice.java.stream;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.alibaba.fastjson.JSONArray;
+
+import java.math.BigDecimal;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.ToIntFunction;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -25,7 +28,31 @@ public class Reduce {
         list.add(2);
         list.add(3);
         list.add(4);
-        Stream<Integer> s1 = list.stream().parallel().unordered().filter(integer -> integer > 2).map(integer -> integer + 9);
+
+        Optional<Integer> reduce = list.stream().reduce((integer, integer2) -> integer + integer2);
+        System.out.println(reduce.orElse(0));
+
+        List<BigDecimal> list1 = new ArrayList<>();
+        list1.add(BigDecimal.valueOf(5));
+        list1.add(new BigDecimal("4.3"));
+        list1.add(BigDecimal.valueOf(4.5));
+
+        Optional<BigDecimal> reduce1 = list1.stream().reduce(BigDecimal::add);
+        System.out.println(reduce1.orElse(BigDecimal.ZERO));
+
+        Map<Integer, Integer> collect = list.stream().collect(Collectors.toMap(integer -> integer, integer -> integer));
+        System.out.println(collect);
+
+        TreeSet<Integer> collect1 = list.stream().collect(Collectors.toCollection(TreeSet::new));
+        System.out.println(collect1);
+
+        JSONArray collect2 = list.stream().collect(Collectors.toCollection(JSONArray::new));
+        System.out.println(collect2);
+
+        List<Integer> collect3 = list.stream().flatMap(integer -> Stream.of(integer, integer + 1)).collect(Collectors.toList());
+        System.out.println(collect3);
+
+
     }
 
     public static void consumeTest() {
