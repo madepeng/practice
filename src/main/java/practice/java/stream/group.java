@@ -1,9 +1,12 @@
 package practice.java.stream;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -34,5 +37,16 @@ public class group {
 
         Map<String, List<Person>> collect3 = list.stream().collect(Collectors.groupingBy(Person::getAddress, Collectors.toList()));
         System.out.println(collect3);
+
+        System.out.println(JSON.toJSONString(p1));
+        System.out.println(JSONObject.toJSONString(p1));
+        System.out.println(JSON.toJSONString(p1).equals(JSONObject.toJSONString(p1)));
+
+        String s = "10";
+        Integer i = 10;
+        System.out.println(s.equals(i));
+        System.out.println(i.equals(s));
+        System.out.println(Objects.equals(s, i));
+        System.out.println(s.equals(String.valueOf(i)));
     }
 }
