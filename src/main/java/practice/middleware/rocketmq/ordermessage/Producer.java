@@ -53,7 +53,7 @@ public class Producer {
                 System.out.printf("%s%n", sendResult);
             }
 
-//            producer.shutdown();
+            producer.shutdown();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-package practice.multiThread.exceptionTest;
+package practice.java.multiThread.exceptionTest;
 
 /**
  * @author madepeng

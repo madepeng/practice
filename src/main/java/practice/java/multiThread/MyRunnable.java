@@ -1,4 +1,4 @@
-package practice.multiThread;
+package practice.java.multiThread;
 
 /**
  * @author madepeng

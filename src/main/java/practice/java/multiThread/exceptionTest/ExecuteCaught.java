@@ -1,4 +1,4 @@
-package practice.multiThread.exceptionTest;
+package practice.java.multiThread.exceptionTest;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

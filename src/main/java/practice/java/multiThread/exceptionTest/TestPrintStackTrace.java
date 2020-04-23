@@ -1,7 +1,6 @@
-package practice.multiThread.exceptionTest;
+package practice.java.multiThread.exceptionTest;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author madepeng

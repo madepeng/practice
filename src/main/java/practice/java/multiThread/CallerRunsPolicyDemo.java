@@ -1,4 +1,4 @@
-package practice.multiThread;
+package practice.java.multiThread;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

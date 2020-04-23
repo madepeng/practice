@@ -62,12 +62,12 @@ public class Consumer {
                     context.setSuspendCurrentQueueTimeMillis(3000);
                     return ConsumeOrderlyStatus.SUSPEND_CURRENT_QUEUE_A_MOMENT;
                 }
-
                 return ConsumeOrderlyStatus.SUCCESS;
             }
         });
 
         consumer.start();
+        consumer.fetchSubscribeMessageQueues("MCP_D_ORDER");
         System.out.printf("Consumer Started.%n");
     }
 
