@@ -5,7 +5,7 @@ package practice.java.multiThread.exceptionTest;
  * @description: TODO
  * @date 2019/8/30 - 10:06
  */
-public class Test {
+public class ThreadExceptionTest {
     public static void main(String[] args) throws InterruptedException {
         Thread thread = new Thread(() -> {
             try {

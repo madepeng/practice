@@ -2,6 +2,7 @@ package practice.java.multiThread.exceptionTest;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * @author madepeng
@@ -12,12 +13,21 @@ public class ExecuteCaught
 {
     public static void main(String[] args)
     {
-        Thread.currentThread().setUncaughtExceptionHandler((t, e) -> System.out.println("自定义异常处理器：" + t.getName() + e.toString()));
         ExecutorService exec = Executors.newCachedThreadPool();
-        exec.execute(new ThreadPoolTask());
-        int i = 1/0;
-        exec.shutdown();
-        throw new RuntimeException("madep");
+        try {
+            exec.execute(new ThreadPoolTask());
+        } catch (Exception e) {
+            System.out.println("execute捕获的异常:" + e.toString());
+        }
+
+
+        try {
+            Future<?> submit = exec.submit(new ThreadPoolTask());
+            submit.get();
+            exec.shutdown();
+        } catch (Exception e) {
+            System.out.println("submit捕获的异常：" + e.toString());
+        }
     }
 }
 
@@ -26,10 +36,7 @@ class ThreadPoolTask implements Runnable
     @Override
     public void run()
     {
-//        Thread.currentThread().setUncaughtExceptionHandler((t, e) -> System.out.println("自定义异常处理器：" + t.getName() + e.toString()));
-        System.out.println(3/2);
-//        System.out.println(3/0);
-        System.out.println(3/1);
-//        throw new RuntimeException("fdsfdsf");
+//       int a = 1 / 0;
+        throw new RuntimeException("fdsfdsf");
     }
 }
