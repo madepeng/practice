@@ -1,5 +1,6 @@
 package practice.java.multiThread.exceptionTest;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -15,7 +16,7 @@ public class ExecuteCaught
     {
         ExecutorService exec = Executors.newCachedThreadPool();
         try {
-            exec.execute(new ThreadPoolTask());
+            exec.submit(new ThreadPoolTask());
         } catch (Exception e) {
             System.out.println("execute捕获的异常:" + e.toString());
         }
@@ -23,20 +24,22 @@ public class ExecuteCaught
 
         try {
             Future<?> submit = exec.submit(new ThreadPoolTask());
-            submit.get();
+            Object o = submit.get();
+            System.out.println(o);
             exec.shutdown();
         } catch (Exception e) {
             System.out.println("submit捕获的异常：" + e.toString());
         }
+
+        System.out.println("主线程正常结束");
     }
 }
 
-class ThreadPoolTask implements Runnable
+class ThreadPoolTask implements Callable
 {
     @Override
-    public void run()
-    {
-//       int a = 1 / 0;
-        throw new RuntimeException("fdsfdsf");
+    public Object call() throws Exception {
+        Thread.sleep(5000);
+        return 1 / 0;
     }
 }
