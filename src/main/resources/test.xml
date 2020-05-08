@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="son" class="practice.apollo.Son">
+    <bean id="son" class="practice.middleware.apollo.Son">
         <constructor-arg value="ddd"/>
     </bean>
 
-    <bean id="person" class="practice.apollo.PersonBean">
+    <bean id="person" class="practice.middleware.apollo.PersonBean">
         <constructor-arg value="madepeng"/>
         <constructor-arg value="22"/>
         <constructor-arg>
@@ -20,7 +20,7 @@
         <constructor-arg ref="son"/>
     </bean>
 
-    <bean id="deparment" class="practice.apollo.Department">
+    <bean id="deparment" class="practice.middleware.apollo.Department">
         <property name="code" value="222"/>
         <property name="name" value="shengtaijinrong"/>
     </bean>

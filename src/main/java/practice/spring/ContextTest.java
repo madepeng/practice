@@ -2,7 +2,7 @@ package practice.spring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import practice.apollo.PersonBean;
+import practice.middleware.apollo.PersonBean;
 
 /**
  * @author 去

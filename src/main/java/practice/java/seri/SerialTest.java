@@ -1,4 +1,4 @@
-package practice.seri;
+package practice.java.seri;
 
 import com.alibaba.fastjson.JSON;
 

@@ -1,4 +1,4 @@
-package practice.apollo;
+package practice.middleware.apollo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

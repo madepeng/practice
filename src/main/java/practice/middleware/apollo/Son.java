@@ -1,4 +1,4 @@
-package practice.apollo;
+package practice.middleware.apollo;
 
 import lombok.AllArgsConstructor;
 

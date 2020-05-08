@@ -1,4 +1,4 @@
-package practice.seri;
+package practice.java.seri;
 
 import java.io.FileInputStream;
 import java.io.IOException;

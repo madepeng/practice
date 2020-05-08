@@ -2,6 +2,7 @@ package practice.java.stream;
 
 import com.google.common.collect.Lists;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -14,7 +15,7 @@ import java.util.stream.Stream;
  * @Version V1.0
  **/
 public class FilterNullTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchFieldException {
         ArrayList<Person> people = Lists.newArrayList(new Person("1", "1", "1"), new Person("2", "2", "2"),
                 new Person("3", "3", "3"));
 
@@ -27,6 +28,12 @@ public class FilterNullTest {
 //        System.out.println(stringStream.collect(Collectors.toList()));
         IntStream intStream = stringStream.mapToInt(Integer::valueOf);
         System.out.println(intStream.findFirst().getAsInt());
+
+        Person p = new Person("4", "4", "4");
+        Field ddd = p.getClass().getDeclaredField("ddd");
+        System.out.println(ddd);
+        Field age = p.getClass().getDeclaredField("age");
+        System.out.println(age);
 
     }
 }

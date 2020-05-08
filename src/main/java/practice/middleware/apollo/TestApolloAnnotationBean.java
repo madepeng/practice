@@ -1,4 +1,4 @@
-package practice.apollo;
+package practice.middleware.apollo;
 
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.model.ConfigChangeEvent;

@@ -44,7 +44,7 @@ public class Producer {
          */
         producer.start();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1; i++) {
             try {
 
                 /*
@@ -55,6 +55,7 @@ public class Producer {
                     ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
                 );
 
+                msg.putUserProperty("orderNo" ,"111111111");
                 /*
                  * Call send message to deliver message to one of brokers.
                  */

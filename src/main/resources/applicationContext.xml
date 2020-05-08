@@ -13,14 +13,14 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-<!--    <context:component-scan base-package="tk.mybatis, practice.apollo"/>-->
+<!--    <context:component-scan base-package="tk.mybatis, practice.middleware.apollo"/>-->
     <context:component-scan base-package="tk.mybatis">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
     <!--<apollo:config/>-->
 
-   <!-- <bean class="practice.apollo.TestXmlBean">
+   <!-- <bean class="practice.middleware.apollo.TestXmlBean">
         <property name="timeout" value="${timeout:100}"/>
         <property name="batch" value="${batch:200}"/>
     </bean>-->
@@ -69,6 +69,6 @@
     </bean>
 
     <import resource="test.xml"/>
-    <bean id="config" class="practice.apollo.AppConfig" />
-    <bean id="general" class="practice.apollo.GeneralConfig"/>
+    <bean id="config" class="practice.middleware.apollo.AppConfig" />
+    <bean id="general" class="practice.middleware.apollo.GeneralConfig"/>
 </beans>
