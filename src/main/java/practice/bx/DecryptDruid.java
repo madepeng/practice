@@ -27,10 +27,10 @@ public class DecryptDruid {
     public static void testDecrypt() {
         // pas c 公钥
         String publicKeyText =
-                "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMQyOkzrqBMPeZWj8+2OlNlQ9kpYbk94+sqmsHntFvRFc2CvQPqKQ2Tu2ggoXTbVKNBTcTk3Pw+13Fu+t76lVgkCAwEAAQ==";
+                "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIOEHIrGBu5kzrhXkrLGcRE798bKhVQ4oyQrSBeir1e3EiG+HN98PCm8Y9lAsHJihP1rPGcwoRyxlOOebTg3d9ECAwEAAQ==";
         // pas c 密文密码
         String cipherText =
-                "CJqdAZ4HdX+dpEY7cY5DJ0kosRAqc7hw7y4LTiC5KEoJ0/sNYQkrqwGVdUNwerqn+0hDcogmbKXvYAcfs5axyw==";
+                "Db5z7wncqDRU7DjEmAMFMfVquPvUR9gV2YPaBMfrH+44l+QVmIVLdnqJI+Y9Ruo9i7Yw7TMtDUk+5q4pkTtadQ==";
         String decryptword = null;
         try {
             decryptword = ConfigTools.decrypt(publicKeyText, cipherText);

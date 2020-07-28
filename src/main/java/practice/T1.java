@@ -1,11 +1,10 @@
 package practice;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author 去
@@ -38,9 +37,19 @@ public class T1 {
   /*      System.out.println(Files.isRegularFile(path));
         System.out.println(Files.isSymbolicLink(path));
         System.out.println(Files.isWritable(path));*/
-        Files.createDirectories(path);
+        /*Files.createDirectories(path);
         Path fp = path.resolve("test.txt");
         Files.createFile(fp);
-        Files.createFile(path);
+        Files.createFile(path);*/
+
+        String s = "3000";
+        System.out.println(NumberUtils.isNumber(s));
+        Long d = Long.valueOf(s);
+        System.out.println(d);
+
+        Object t = "44444";
+        Long l = Long.valueOf(t.toString());
+        System.out.println(l);
+
     }
 }
