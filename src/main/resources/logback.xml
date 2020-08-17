@@ -1,14 +1,14 @@
 <configuration scan="true" scanPeriod="5 seconds">
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>[%d][%-5level][TransId:%X{transId}][CustomerId:%X{customerId}][%c{20}] - %msg%n</pattern>
+			<pattern>[%d][%-5level][%thread][TransId:%X{transId}][CustomerId:%X{customerId}][%c{20}] - %msg%n</pattern>
 		</encoder>
 	</appender>
 
 	<root level="debug">
 		<appender-ref ref="CONSOLE"/>
 	</root>
-	<logger name="practice" level="all" additivity="false">
+	<logger name="practice" level="info" additivity="false">
 		<appender-ref ref="CONSOLE"/>
 	</logger>
 
