@@ -1,7 +1,7 @@
 package practice.camunda;
 
 import org.springframework.beans.BeanUtils;
-import practice.reflect.Person;
+import practice.java.reflect.Person;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
