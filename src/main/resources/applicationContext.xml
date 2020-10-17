@@ -71,4 +71,16 @@
     <import resource="test.xml"/>
     <bean id="config" class="practice.middleware.apollo.AppConfig" />
     <bean id="general" class="practice.middleware.apollo.GeneralConfig"/>
+
+    <bean id="callerRunsPolicy" class="java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy"/>
+    <bean id="taskThreadScheduler" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
+        <!-- 线程池维护线程的最少数量 -->
+        <property name="poolSize" value="500"/>
+        <!-- 终止线程池时等待现有任务执行完成 -->
+        <property name="waitForTasksToCompleteOnShutdown" value="true"/>
+        <!-- 终止线程池等待时间 -->
+        <property name="awaitTerminationSeconds" value="60"/>
+        <!-- 阻塞机制 -->
+        <property name="rejectedExecutionHandler" ref="callerRunsPolicy"/>
+    </bean>
 </beans>
