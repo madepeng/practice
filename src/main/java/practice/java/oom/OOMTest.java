@@ -19,8 +19,12 @@ public class OOMTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(OOMTest.class);
 
     public static void main(String[] args) {
-        long memory = Runtime.getRuntime().maxMemory();
-        LOGGER.info(String.format("内存大小:%d (%.2f M)", memory, (double) memory / (1024 * 1024)));
+        System.out.print("最大内存： ");
+        System.out.println(Runtime.getRuntime().maxMemory() / 1024 / 1024 + "MB");
+        System.out.print("可用内存： ");
+        System.out.println(Runtime.getRuntime().freeMemory() / 1024 / 1024 + "MB");
+        System.out.print("已使用内存： ");
+        System.out.println(Runtime.getRuntime().totalMemory() / 1024 / 1024 + "MB");
 
         Thread mThreadTest = new Thread(() -> {
             List<byte[]> list = new ArrayList<>();
