@@ -1,11 +1,8 @@
 package practice;
 
-import com.alibaba.fastjson.JSON;
 import lombok.Data;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.apache.commons.lang3.time.DateUtils;
 
-import java.text.NumberFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -54,5 +51,8 @@ public class Test {
         System.out.println(NumberUtils.isDigits(s));
 
         System.out.println(LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("yyyyMMdd")));
+
+        Long aLong = Long.valueOf("49999.99");
+        System.out.println(aLong);
     }
 }
