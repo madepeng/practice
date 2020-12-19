@@ -5,6 +5,8 @@ import org.apache.commons.lang3.math.NumberUtils;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author 去
@@ -51,5 +53,20 @@ public class T1 {
         Long l = Long.valueOf(t.toString());
         System.out.println(l);
 
+        boolean matches = Pattern.compile("^\\d{14,22}$").matcher("6217716608624223").matches();
+        System.out.println(matches);
+
+        Pattern compile = Pattern.compile("\\b1[0-9]{2}(?<first>[ |-]?)[0-9]{4}(\\k<first>)[0-9]{4}\\b");
+        Matcher matcher = compile.matcher("188-1309-4444");
+        System.out.println(matcher.matches());
+        System.out.println(matcher.group(0));
+        System.out.println(matcher.group("first"));
+
+        System.out.println("test spilt");
+        String s1 = "fd$_fds";
+        String[] s2 = s1.split("_");
+        for (String s3 : s2) {
+            System.out.println(s3);
+        }
     }
 }
