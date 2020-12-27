@@ -29,7 +29,7 @@ public class GamePlayerIH implements InvocationHandler {
         System.arraycopy(targetInterfaces, 0, proxyInterfaces, 0, targetInterfaces.length);
         proxyInterfaces[proxyInterfaces.length - 1] = Add.class;
 
-        this.proxy = (Add)Proxy.newProxyInstance(target.getClass().getClassLoader(), proxyInterfaces.getClass().getInterfaces(), this);
+        this.proxy = Proxy.newProxyInstance(target.getClass().getClassLoader(), proxyInterfaces, this);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class GamePlayerIH implements InvocationHandler {
         String mName = method.getName();
 
         // ignore all non-log methods
-        if (!"log".equals(mName)) {
+        if (!"add".equals(mName)) {
             return method.invoke(target, args);
         }
 

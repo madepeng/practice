@@ -7,7 +7,7 @@ package practice.design.agency.staticImpl;
  * @Date 2020/12/8
  * @Version V1.0
  **/
-public class GamePlayer implements Add {
+public class GamePlayer implements IGamePlayer {
     private String name;
 
     public GamePlayer(String _name) {
@@ -30,14 +30,20 @@ public class GamePlayer implements Add {
     }*/
 
     @Override
-    public void add() {
-
+    public void login(String user, String password) {
+        System.out.println("login");
     }
 
     @Override
-    public void advice() {
-
+    public void killBoss() {
+        System.out.println("killboss");
     }
+
+    @Override
+    public void upgrade() {
+        System.out.println("upgrade");
+    }
+
 /* @Override
     public void advice() {
         System.out.println(name +":advice");

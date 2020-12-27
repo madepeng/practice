@@ -17,5 +17,10 @@ public class Client {
 
         MyCommonLog myCommonLog = (MyCommonLog) proxy;
         myCommonLog.myCommonLog();
+        myCommonLog.mylog();
+
+        Advice advice = (Advice) proxy;
+        advice.advice();
+
     }
 }

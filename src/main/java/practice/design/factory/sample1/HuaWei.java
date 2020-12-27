@@ -1,4 +1,4 @@
-package practice.design.agency;
+package practice.design.factory.sample1;
 
 import java.util.ArrayList;
 import java.util.Comparator;

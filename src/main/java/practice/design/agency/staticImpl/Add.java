@@ -7,6 +7,6 @@ package practice.design.agency.staticImpl;
  * @Date 2020/12/24
  * @Version V1.0
  **/
-public interface Add extends Advice {
+public interface Add extends IGamePlayer {
     void add();
 }

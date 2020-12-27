@@ -29,16 +29,14 @@ public class Client {
         ll1.upgrade();
         ll2.advice();*/
 
-        Add add  = new GamePlayer("test");
-        Object proxy = new GamePlayerIH(add).getProxy();
+        IGamePlayer gamePlayer  = new GamePlayer("test");
+        Object proxy = new GamePlayerIH(gamePlayer).getProxy();
 
         IGamePlayer ll1 = (IGamePlayer) proxy;
-        Advice ll2 = (Advice) proxy;
-
         ll1.upgrade();
-        ll2.advice();
 
         Add ll3 = (Add) proxy;
         ll3.add();
+        ll3.upgrade();
     }
 }
