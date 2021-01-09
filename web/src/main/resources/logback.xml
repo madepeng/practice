@@ -1,0 +1,20 @@
+<configuration scan="true" scanPeriod="5 seconds">
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%d][%-5level][%thread][TransId:%X{transId}][CustomerId:%X{customerId}][%logger:%L] - %msg -[%C:%M] [%file:%line]%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="debug">
+		<appender-ref ref="CONSOLE"/>
+	</root>
+	<logger name="practice" level="info" additivity="false">
+		<appender-ref ref="CONSOLE"/>
+	</logger>
+
+	<logger name="com.alibaba.druid.filter.stat.StatFilter" level="debug" additivity="false">
+		<appender-ref ref="CONSOLE"/>
+	</logger>
+
+	<logger name="org.springframework" level="warn"/>
+</configuration>

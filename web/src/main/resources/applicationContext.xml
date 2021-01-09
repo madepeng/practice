@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!--    <context:component-scan base-package="tk.mybatis, practice.middleware.apollo"/>-->
+    <context:component-scan base-package="web">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--<apollo:config/>-->
+
+   <!-- <bean class="practice.middleware.apollo.TestXmlBean">
+        <property name="timeout" value="${timeout:100}"/>
+        <property name="batch" value="${batch:200}"/>
+    </bean>-->
+
+    <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations">
+            <array>
+                <value>classpath:mapper/*.xml</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="addToConfig" value="true"/>
+        <property name="basePackage" value="web.mapper"/>
+    </bean>
+
+    <aop:aspectj-autoproxy/>
+
+
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <bean id="callerRunsPolicy" class="java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy"/>
+    <bean id="taskThreadScheduler" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
+        <!-- 线程池维护线程的最少数量 -->
+        <property name="poolSize" value="500"/>
+        <!-- 终止线程池时等待现有任务执行完成 -->
+        <property name="waitForTasksToCompleteOnShutdown" value="true"/>
+        <!-- 终止线程池等待时间 -->
+        <property name="awaitTerminationSeconds" value="60"/>
+        <!-- 阻塞机制 -->
+        <property name="rejectedExecutionHandler" ref="callerRunsPolicy"/>
+    </bean>
+</beans>
