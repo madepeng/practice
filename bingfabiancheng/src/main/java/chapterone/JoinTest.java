@@ -20,7 +20,7 @@ public class JoinTest {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            LOGGER.info("A run");
+            LOGGER.info("A runed");
         });
 
         Thread thread1 = new Thread(() -> {
@@ -29,13 +29,12 @@ public class JoinTest {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            LOGGER.info("B run");
+            LOGGER.info("B runed");
         });
-
-        LOGGER.info("main run");
 
         thread.start();
         thread1.start();
+
         thread.join();
         thread1.join();
 

@@ -1,6 +1,7 @@
 package classloader;
 
 import org.apache.ibatis.javassist.runtime.Inner;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,6 +36,10 @@ public class LoadResource {
         InputStream i2 = LoadResource.class.getClassLoader().getResourceAsStream("config.properties");
         printProperties(i1);
         printProperties(i2);
+
+        ClassPathResource classPathResource = new ClassPathResource("config.properties");
+        printProperties(classPathResource.getInputStream());
+
 
     }
 
