@@ -17,18 +17,10 @@ public class T4 {
     public static void main(String[] args) {
         new Thread(() -> {
             synchronized (lock) {
-               /* while (true) {
-//                    System.out.println("A");
-                }*/
-            }
-        }).start();
-
-        new Thread(() -> {
-            synchronized (lock) {
                 while (true) {
-                    System.out.println("B");
+                    System.out.println("A");
                 }
             }
-        }).start();
+        },"AAA").start();
     }
 }

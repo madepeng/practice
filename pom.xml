@@ -12,6 +12,7 @@
         <module>middleware</module>
         <module>javastudy</module>
         <module>web</module>
+        <module>jvm</module>
     </modules>
 
     <properties>

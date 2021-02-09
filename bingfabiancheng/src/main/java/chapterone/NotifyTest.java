@@ -22,7 +22,7 @@ public class NotifyTest {
                     e.printStackTrace();
                 }
             }
-        });
+        }, "ThreadA");
 
         Thread threadB = new Thread(() -> {
             synchronized (resource) {
@@ -35,15 +35,14 @@ public class NotifyTest {
                     e.printStackTrace();
                 }
             }
-        });
+        }, "threadB");
 
         Thread threadC = new Thread(() -> {
             synchronized (resource) {
-                System.out.println("threadC get resource");
-                System.out.println("threadC begin notify");
+                System.out.println("threadC get resource and begin notify");
                 resource.notifyAll();
             }
-        });
+        }, "threadC");
 
         threadA.start();
         threadB.start();
