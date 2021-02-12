@@ -1,9 +1,11 @@
 package chapterthree;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
+import java.text.MessageFormat;
 
 /**
  * @ClassName UnsafeTest
@@ -35,5 +37,8 @@ public class UnsafeTest {
         System.out.println(stateOffset);
         System.out.println(test.getState());
         System.out.println(success);
+        System.out.println(JSON.toJSON(null));
+        System.out.println(JSON.toJSON(null) instanceof String);
+        System.out.println(MessageFormat.format("fdfd {0}",null));
     }
 }
